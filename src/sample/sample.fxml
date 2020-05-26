@@ -1,0 +1,49 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<GridPane fx:controller="sample.Controller" styleClass="body" xmlns:fx="http://javafx.com/fxml">
+    <VBox>
+        <HBox styleClass="zestawButtonParent">
+            <Button styleClass="zestawButton" fx:id="zestaw1" text="Zestaw1" onMouseClicked="#changeSettings1"></Button>
+            <Button styleClass="zestawButton" fx:id="zestaw2" text="Zestaw2" onMouseClicked="#changeSettings2"></Button>
+            <Button styleClass="zestawButton" fx:id="zestaw3" text="Zestaw3" onMouseClicked="#changeSettings3"></Button>
+        </HBox>
+        <HBox styleClass="scriptsParent">
+            <TextArea fx:id="scripts" prefWidth="300" styleClass="scripts"></TextArea>
+            <VBox>
+                <HBox styleClass="setter">
+                    <Label>On/Off</Label>
+                    <TextField styleClass="input" fx:id="onOffInput" prefWidth="70"></TextField>
+                    <Button styleClass="addButton" fx:id="onOffButton" prefWidth="60" onMouseClicked="#updateOnOff">➕</Button>
+                </HBox>
+                <Label fx:id="onOff">On/Off: F4</Label>
+                <VBox styleClass="help">
+                    <Label>Help:</Label>
+                    <Label>loop:t:1000:b:A</Label>
+                    <Label>t:1000 - interval 1000ms</Label>
+                    <Label>b:A - activator A</Label>
+                    <Label>if:E - start if press E</Label>
+                    <Label>-"method"- loop's or if's element</Label>
+                    <Label>-press:space</Label>
+                    <Label>-click - use mouse 1</Label>
+                    <Label>-click_position:x:100:y:100</Label>
+                    <Label>-wait: 200 - wait 200 ms</Label>
+                    <Label>Example:</Label>
+                    <Label>if:E</Label>
+                    <Label>-press:3</Label>
+                    <Label>-press:4</Label>
+                    <Label>loop:t:50:b:F3</Label>
+                    <Label>-click</Label>
+                </VBox>
+            </VBox>
+        </HBox>
+        <HBox styleClass="saveUpdate">
+            <Button onMouseClicked="#loadSave" styleClass="zestawButton">Save/Load</Button>
+        </HBox>
+    </VBox>
+</GridPane>

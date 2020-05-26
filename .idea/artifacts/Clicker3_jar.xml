@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Clicker3:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Clicker3_jar</output-path>
+    <root id="archive" name="Clicker3.jar">
+      <element id="module-output" name="Clicker3" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jnativehook-2.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
