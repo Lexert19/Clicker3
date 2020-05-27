@@ -33,17 +33,17 @@ public class Controller implements Initializable {
         loadSettings();
     }
 
-    private void loadSettings(){
-        onOff.setText("On/Off: "+Data.buttonOnOff);
+    private void loadSettings() {
+        onOff.setText("On/Off: " + Data.buttonOnOff);
         scripts.setText(Data.textSet);
         zestaw1.getStyleClass().remove("actualZestaw");
         zestaw2.getStyleClass().remove("actualZestaw");
         zestaw3.getStyleClass().remove("actualZestaw");
-        if(Data.activeSet == 1)
+        if (Data.activeSet == 1)
             zestaw1.getStyleClass().add("actualZestaw");
-        if(Data.activeSet == 2)
+        if (Data.activeSet == 2)
             zestaw2.getStyleClass().add("actualZestaw");
-        if(Data.activeSet == 3)
+        if (Data.activeSet == 3)
             zestaw3.getStyleClass().add("actualZestaw");
 
     }
@@ -65,7 +65,7 @@ public class Controller implements Initializable {
 
 
     public void updateOnOff(MouseEvent mouseEvent) throws IOException {
-        if(onOffInput.getText().length() != 0){
+        if (onOffInput.getText().length() != 0) {
             Data.changeButtonOnOff(onOffInput.getText());
             onOffInput.setText("");
             loadSettings();
@@ -73,8 +73,15 @@ public class Controller implements Initializable {
     }
 
     public void loadSave(MouseEvent mouseEvent) throws IOException {
-        //save
-        Data.textSet = scripts.getText();
+        StringBuffer bf = new StringBuffer(scripts.getText());
+        int j = 0;
+        for (int i = 0; i < bf.length(); i++) {
+            if (!Character.isSpaceChar(bf.charAt(i))) {
+                bf.setCharAt(j++, bf.charAt(i));
+            }
+        }
+        bf.delete(j, bf.length());
+        Data.textSet = bf.toString();
         Data.updateSet = true;
         Data.save();
     }
