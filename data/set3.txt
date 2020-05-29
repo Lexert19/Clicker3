@@ -1,2 +1,3 @@
-if:r      
--press:t          
+if:r
+-press:t
+-press:w

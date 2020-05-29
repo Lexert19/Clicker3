@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -29,9 +30,11 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         root.getStylesheets().add(getClass().getResource("main.css").toString());
 
+
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Clicker3 XP");
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 536, 470));
+        primaryStage.setScene(new Scene(root, 536, 490));
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

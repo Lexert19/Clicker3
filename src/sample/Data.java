@@ -29,6 +29,7 @@ public class Data {
         }
         file.close();
         textSet = buffer.toString();
+        updateSet = true;
     }
 
     public static void changeSet(int set) throws IOException {
