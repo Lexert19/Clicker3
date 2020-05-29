@@ -45,22 +45,16 @@ public class Controller implements Initializable {
         onOff.setText("On/Off: " + Data.buttonOnOff);
         scripts.setText(Data.textSet);
         zestaw1.getStyleClass().remove("actualZestaw");
-        zestaw1.getStyleClass().add("zestawButton");
         zestaw2.getStyleClass().remove("actualZestaw");
-        zestaw2.getStyleClass().add("zestawButton");
         zestaw3.getStyleClass().remove("actualZestaw");
-        zestaw3.getStyleClass().add("zestawButton");
         if (Data.activeSet == 1){
             zestaw1.getStyleClass().add("actualZestaw");
-            zestaw1.getStyleClass().remove("zestawButton");
         }
         if (Data.activeSet == 2){
             zestaw2.getStyleClass().add("actualZestaw");
-            zestaw2.getStyleClass().remove("zestawButton");
         }
         if (Data.activeSet == 3){
             zestaw3.getStyleClass().add("actualZestaw");
-            zestaw3.getStyleClass().remove("zestawButton");
         }
         Data.loadSettings();
     }

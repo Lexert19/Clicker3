@@ -26,22 +26,13 @@ public class Main extends Application {
         Thread presserClicker = new Thread(new PresserClicker(queue));
         presserClicker.start();
 
-
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         root.getStylesheets().add(getClass().getResource("main.css").toString());
-
 
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Clicker3 XP");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 536, 490));
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                Platform.exit();
-                System.exit(0);
-            }
-        });
         primaryStage.show();
     }
 

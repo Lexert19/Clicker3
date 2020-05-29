@@ -5,7 +5,7 @@
 
 .body{
     -fx-font-size: 15;
-    -fx-background-color: #363636;
+    -fx-background-color: #36363c;
 }
 
 .scriptsParent{
@@ -15,7 +15,7 @@
 
 .scripts .content{
     -fx-font-size: 15;
-    -fx-background-color: #363636;
+    -fx-background-color: #36363c;
 }
 
 .saveUpdate{
@@ -31,13 +31,6 @@
     -fx-background-color: #282828;
 }
 
-/*dfdgfgfddgfgfddgfdgfdgfdgfdgf*/
-
-.zestawButtonParent{
-    /*-fx-padding: 0 0 0 14;
-    -fx-spacing: 7;*/
-}
-
 .closeButton{
     -fx-background-color: #121212;
     -fx-text-fill: white;
@@ -48,29 +41,17 @@
 }
 
 .zestawButton{
-   /* -fx-background-radius: 7px;
-    -fx-border-radius: 7px;
-    -fx-border-width: 2px;*/
     -fx-border-style: none;
-    -fx-background-color: #505050;
+    -fx-background-color: #484848;
 }
 .actualZestaw{
     -fx-border-style: none;
     -fx-text-fill: white;
     -fx-background-color: STEELBLUE;
 }
-.actualZestaw:hover{
-    -fx-background-color: STEELBLUE;
-}
 
 .zestawButton:hover{
     -fx-text-fill: #ffffff;
-    /*-fx-background-color: #777;*/
-}
-
-.h1{
-    -fx-font-size: 20;
-    -fx-text-fill: white;
 }
 
 .presserParent{
@@ -96,19 +77,4 @@
 
 .addButton:hover{
     -fx-background-color: darkgreen;
-}
-
-.restart{
-    -fx-padding: 24 0 0 7;
-    -fx-font-size: 13;
-    -fx-spacing: 14;
-}
-
-.resetButton{
-    -fx-background-radius: 7px;
-    -fx-border-radius: 7px;
-    -fx-background-color: #505050;
-}
-.resetButton:hover{
-    -fx-background-color: #777;
 }

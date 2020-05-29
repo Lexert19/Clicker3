@@ -9,7 +9,7 @@
 <GridPane fx:controller="sample.Controller" styleClass="body" xmlns:fx="http://javafx.com/fxml">
     <VBox>
         <HBox fx:id="topBar" styleClass="topBar"  onMousePressed="#pressed" onMouseDragged="#dragged">
-            <HBox styleClass="zestawButtonParent" prefWidth="268">
+            <HBox prefWidth="268">
                 <Button styleClass="zestawButton" fx:id="zestaw1" text="Zestaw1" onMouseClicked="#changeSettings1"></Button>
                 <Button styleClass="zestawButton" fx:id="zestaw2" text="Zestaw2" onMouseClicked="#changeSettings2"></Button>
                 <Button styleClass="zestawButton" fx:id="zestaw3" text="Zestaw3" onMouseClicked="#changeSettings3"></Button>
