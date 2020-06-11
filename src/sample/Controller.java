@@ -17,11 +17,11 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    private Button zestaw1;
+    private Label zestaw1;
     @FXML
-    private Button zestaw2;
+    private Label zestaw2;
     @FXML
-    private Button zestaw3;
+    private Label zestaw3;
     @FXML
     private Label onOff;
     @FXML
@@ -44,17 +44,23 @@ public class Controller implements Initializable {
     private void loadSettings() throws IOException {
         onOff.setText("On/Off: " + Data.buttonOnOff);
         scripts.setText(Data.textSet);
-        zestaw1.getStyleClass().remove("actualZestaw");
-        zestaw2.getStyleClass().remove("actualZestaw");
-        zestaw3.getStyleClass().remove("actualZestaw");
+        zestaw1.getStyleClass().removeAll("actualZestaw");
+        zestaw1.getStyleClass().add("zestawButton");
+        zestaw2.getStyleClass().removeAll("actualZestaw");
+        zestaw2.getStyleClass().add("zestawButton");
+        zestaw3.getStyleClass().removeAll("actualZestaw");
+        zestaw3.getStyleClass().add("zestawButton");
         if (Data.activeSet == 1){
             zestaw1.getStyleClass().add("actualZestaw");
+            zestaw1.getStyleClass().removeAll("zestawButton");
         }
         if (Data.activeSet == 2){
             zestaw2.getStyleClass().add("actualZestaw");
+            zestaw2.getStyleClass().removeAll("zestawButton");
         }
         if (Data.activeSet == 3){
             zestaw3.getStyleClass().add("actualZestaw");
+            zestaw3.getStyleClass().removeAll("zestawButton");
         }
         Data.loadSettings();
     }
@@ -126,5 +132,10 @@ public class Controller implements Initializable {
     public void close(MouseEvent mouseEvent) {
         Platform.exit();
         System.exit(0);
+    }
+
+    public void minimize(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 }

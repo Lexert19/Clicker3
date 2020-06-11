@@ -10,12 +10,13 @@
     <VBox>
         <HBox fx:id="topBar" styleClass="topBar"  onMousePressed="#pressed" onMouseDragged="#dragged">
             <HBox prefWidth="268">
-                <Button styleClass="zestawButton" fx:id="zestaw1" text="Zestaw1" onMouseClicked="#changeSettings1"></Button>
-                <Button styleClass="zestawButton" fx:id="zestaw2" text="Zestaw2" onMouseClicked="#changeSettings2"></Button>
-                <Button styleClass="zestawButton" fx:id="zestaw3" text="Zestaw3" onMouseClicked="#changeSettings3"></Button>
+                <Label fx:id="zestaw1" text="Zestaw1" onMouseClicked="#changeSettings1"></Label>
+                <Label fx:id="zestaw2" text="Zestaw2" onMouseClicked="#changeSettings2"></Label>
+                <Label fx:id="zestaw3" text="Zestaw3" onMouseClicked="#changeSettings3"></Label>
             </HBox>
             <HBox alignment="TOP_RIGHT" prefWidth="268">
-                <Button fx:id="close" prefWidth="36" styleClass="closeButton" onMouseClicked="#close">❌</Button>
+                <Label fx:id="minimize" prefWidth="36" styleClass="minimizeButton" onMouseClicked="#minimize">—</Label>
+                <Label fx:id="close" prefWidth="36" styleClass="closeButton" onMouseClicked="#close">❌</Label>
             </HBox>
         </HBox>
         <HBox styleClass="scriptsParent">

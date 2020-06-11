@@ -32,26 +32,44 @@
 }
 
 .closeButton{
-    -fx-background-color: #121212;
+    -fx-background-color: #282828;
     -fx-text-fill: white;
     -fx-font-weight: 900;
+    -fx-padding: 4;
+    -fx-alignment: center;
 }
 .closeButton:hover{
     -fx-background-color: #ff0000;
 }
 
+.minimizeButton{
+    -fx-background-color: #282828;
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-padding: 4;
+    -fx-alignment: center;
+}
+.minimizeButton:hover{
+    -fx-background-color: STEELBLUE;
+}
+
+
 .zestawButton{
     -fx-border-style: none;
-    -fx-background-color: #484848;
+    -fx-background-color: #282828;
+    -fx-padding: 5;
 }
+
 .actualZestaw{
     -fx-border-style: none;
-    -fx-text-fill: white;
+    -fx-text-fill: #ffffff;
     -fx-background-color: STEELBLUE;
+    -fx-padding: 5;
 }
 
 .zestawButton:hover{
     -fx-text-fill: #ffffff;
+    -fx-background-color: #484848;
 }
 
 .presserParent{
