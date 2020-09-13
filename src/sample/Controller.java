@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -25,12 +26,14 @@ public class Controller implements Initializable {
     @FXML
     private Label onOff;
     @FXML
+    private Label saveLoadInfo;
+    @FXML
     private Button onOffButton;
     @FXML
     private TextField onOffInput;
     @FXML
     private TextArea scripts;
-    private double x,y;
+    private double x, y;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,15 +53,15 @@ public class Controller implements Initializable {
         zestaw2.getStyleClass().add("zestawButton");
         zestaw3.getStyleClass().removeAll("actualZestaw");
         zestaw3.getStyleClass().add("zestawButton");
-        if (Data.activeSet == 1){
+        if (Data.activeSet == 1) {
             zestaw1.getStyleClass().add("actualZestaw");
             zestaw1.getStyleClass().removeAll("zestawButton");
         }
-        if (Data.activeSet == 2){
+        if (Data.activeSet == 2) {
             zestaw2.getStyleClass().add("actualZestaw");
             zestaw2.getStyleClass().removeAll("zestawButton");
         }
-        if (Data.activeSet == 3){
+        if (Data.activeSet == 3) {
             zestaw3.getStyleClass().add("actualZestaw");
             zestaw3.getStyleClass().removeAll("zestawButton");
         }
@@ -94,6 +97,7 @@ public class Controller implements Initializable {
 
     private void saveSet() throws IOException {
         StringBuffer bf = new StringBuffer(scripts.getText());
+
         int j = 0;
         for (int i = 0; i < bf.length(); i++) {
             if (!Character.isSpaceChar(bf.charAt(i))) {
@@ -116,6 +120,8 @@ public class Controller implements Initializable {
         Data.textSet = bf.toString();
         Data.updateSet = true;
         Data.save();
+
+        saveLoadInfo.setText("Saved");
     }
 
     public void pressed(MouseEvent mouseEvent) {
@@ -124,9 +130,9 @@ public class Controller implements Initializable {
     }
 
     public void dragged(MouseEvent mouseEvent) {
-        Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
-        stage.setX(mouseEvent.getScreenX()-x);
-        stage.setY(mouseEvent.getScreenY()-y);
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setX(mouseEvent.getScreenX() - x);
+        stage.setY(mouseEvent.getScreenY() - y);
     }
 
     public void close(MouseEvent mouseEvent) {
@@ -135,7 +141,11 @@ public class Controller implements Initializable {
     }
 
     public void minimize(MouseEvent mouseEvent) {
-        Stage stage = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    public void hideSaveLoadInfo(KeyEvent keyEvent) {
+        saveLoadInfo.setText("");
     }
 }

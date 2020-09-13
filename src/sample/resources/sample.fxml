@@ -20,7 +20,7 @@
             </HBox>
         </HBox>
         <HBox styleClass="scriptsParent">
-            <TextArea fx:id="scripts" prefWidth="300" styleClass="scripts"></TextArea>
+            <TextArea fx:id="scripts" prefWidth="300" styleClass="scripts" onKeyPressed="#hideSaveLoadInfo"></TextArea>
             <VBox>
                 <HBox styleClass="setter">
                     <Label>On/Off</Label>
@@ -51,6 +51,7 @@
         </HBox>
         <HBox styleClass="saveUpdate">
             <Button onMouseClicked="#loadSave" styleClass="zestawButton">Save/Load</Button>
+            <Label styleClass="saveLoadInfo, savedInfo" fx:id="saveLoadInfo">Saved</Label>
         </HBox>
     </VBox>
 </GridPane>

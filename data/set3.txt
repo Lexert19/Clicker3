@@ -1,3 +1,6 @@
 if:r
 -press:t
+-press:we
+loop:t:1000:b:A
+-press:space
 -press:w

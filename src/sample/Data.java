@@ -52,8 +52,6 @@ public class Data {
 
     public static void save() throws IOException {
         String fileName = "data/set"+activeSet+".txt";
-        //BufferedReader file = new BufferedReader(new FileReader(fileName));
-        //StringBuffer buffer = new StringBuffer(textSet);
         FileOutputStream fileOut = new FileOutputStream(fileName);
         fileOut.write(textSet.getBytes());
         fileOut.close();

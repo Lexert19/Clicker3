@@ -1,14 +1,11 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -26,11 +23,11 @@ public class Main extends Application {
         Thread presserClicker = new Thread(new PresserClicker(queue));
         presserClicker.start();
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        root.getStylesheets().add(getClass().getResource("main.css").toString());
+        Parent root = FXMLLoader.load(getClass().getResource("resources/sample.fxml"));
+        root.getStylesheets().add(getClass().getResource("resources/main.css").toString());
 
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setTitle("Clicker3 XP");
+        primaryStage.setTitle("Clicker3");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 536, 490));
         primaryStage.show();

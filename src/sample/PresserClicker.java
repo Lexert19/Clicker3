@@ -20,22 +20,14 @@ public class PresserClicker implements Runnable {
 
     @Override
     public void run() {
-        String text = "loop:t:500:b:F3\n" +
-                "-press:2\n" +
-                "if:w\n" +
-                "-wait:210\n" +
-                "-press:space\n" +
-                "-wait:300\n" +
-                "-press:space\n";
-        createSetFromText(new StringBuffer(text));
         while (true) {
-            if(Data.updateSet){
+            if (Data.updateSet) {
                 Data.updateSet = false;
                 ifs.clear();
                 loops.clear();
                 createSetFromText(new StringBuffer(Data.textSet));
             }
-            if(Data.active){
+            if (Data.active) {
                 try {
                     String clickedButton = "";
                     if (!queue.isEmpty())
@@ -61,10 +53,6 @@ public class PresserClicker implements Runnable {
         }
     }
 
-    private void updateSet(){
-
-    }
-
     public Method createMethod(String line) {
         if (line.contains("-wait:")) {
             Wait wait = new Wait();
@@ -86,7 +74,19 @@ public class PresserClicker implements Runnable {
         return null;
     }
 
+    private void correctSet(StringBuffer text) {
+        for (int i = 0; i < text.length() - 1; i++) {
+            if (text.charAt(i) == '\n') {
+                while (text.charAt(i + 1) == '\n') {
+                    text.deleteCharAt(i + 1);
+                }
+            }
+        }
+    }
+
     public void createSetFromText(StringBuffer text) {
+        correctSet(text);
+
         String[] lines = text.toString().split("\\n");
         for (int i = 0; i < lines.length; i++) {
             if (lines[i].contains("if:")) {
@@ -95,7 +95,7 @@ public class PresserClicker implements Runnable {
                 while (lines[i].charAt(0) == '-') {
                     newIf.addMethod(createMethod(lines[i]));
                     i++;
-                    if (i == lines.length){
+                    if (i == lines.length) {
                         break;
                     }
                 }
@@ -109,7 +109,7 @@ public class PresserClicker implements Runnable {
                 while (lines[i].charAt(0) == '-') {
                     loop.addMethod(createMethod(lines[i]));
                     i++;
-                    if (i == lines.length){
+                    if (i == lines.length) {
                         break;
                     }
                 }
@@ -120,7 +120,7 @@ public class PresserClicker implements Runnable {
     }
 
     private String readValue(String line) {
-        StringBuffer value = new StringBuffer("");
+        StringBuffer value = new StringBuffer();
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == ':') {
                 while (i < line.length()) {
@@ -144,7 +144,7 @@ public class PresserClicker implements Runnable {
                 while (line.charAt(i) != ':') {
                     value.append(line.charAt(i));
                     i++;
-                    if(i == line.length())
+                    if (i == line.length())
                         break;
                 }
                 return Integer.parseInt(value.toString());
@@ -154,7 +154,7 @@ public class PresserClicker implements Runnable {
     }
 
     private int loopGetInterval(String line) {
-        StringBuffer value = new StringBuffer("");
+        StringBuffer value = new StringBuffer();
         for (int i = 0; i < line.length(); i++) {
             if (line.charAt(i) == 't') {
                 i += 2;
@@ -193,7 +193,7 @@ public class PresserClicker implements Runnable {
                 while (line.charAt(i) != ':') {
                     value.append(line.charAt(i));
                     i++;
-                    if(i == line.length())
+                    if (i == line.length())
                         break;
                 }
                 return Integer.parseInt(value.toString());

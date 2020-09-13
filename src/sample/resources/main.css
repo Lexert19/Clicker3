@@ -22,6 +22,14 @@
     -fx-padding: 7 0 0 7;
 }
 
+.savedInfo{
+    -fx-text-fill: forestgreen;
+}
+
+.saveLoadInfo{
+    -fx-padding: 6 0 0 7;
+}
+
 .help{
     -fx-padding: 12 0 0 0;
     -fx-font-size: 14;
