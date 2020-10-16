@@ -2,34 +2,40 @@ package sample;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Data {
-    public static boolean active = true;
+    //public static boolean active = true;
+    public static AtomicBoolean active = new AtomicBoolean(true);
     public static String buttonOnOff = "F2";
     public static int activeSet = 1;
-    public static boolean updateSet = false;
+    public static AtomicBoolean updateSet = new AtomicBoolean(false);
     public static String textSet = "";
     public static Properties props = new Properties();
 
     public static void loadSettings() throws IOException {
         props.load(new FileInputStream("data/settings.properties"));
+
         String propertiesButtonOnOff = props.getProperty("buttonOnOff");
         if(propertiesButtonOnOff != null)
             buttonOnOff = propertiesButtonOnOff;
         String propertiesActiveSet = props.getProperty("activeSet");
+
         if(propertiesActiveSet != null)
             activeSet = Integer.parseInt(propertiesActiveSet);
         String fileName = "data/set"+activeSet+".txt";
         BufferedReader file = new BufferedReader(new FileReader(fileName));
         StringBuffer buffer = new StringBuffer();
         String line;
+
         while ((line = file.readLine()) != null) {
             buffer.append(line);
             buffer.append('\n');
         }
+
         file.close();
         textSet = buffer.toString();
-        updateSet = true;
+        updateSet.set(true);
     }
 
     public static void changeSet(int set) throws IOException {
@@ -47,7 +53,7 @@ public class Data {
         }
         file.close();
         textSet = buffer.toString();
-        updateSet = true;
+        updateSet.set(true);
     }
 
     public static void save() throws IOException {

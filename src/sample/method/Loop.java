@@ -2,7 +2,6 @@ package sample.method;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 
 public class Loop {
     private int interval;
@@ -24,7 +23,7 @@ public class Loop {
         }
     }
 
-    public void turnOnOff(String button){
+    public void activate(String button){
         if(buttonOnOff.toUpperCase().equals(button.toUpperCase()))
             runnnig = !runnnig;
     }

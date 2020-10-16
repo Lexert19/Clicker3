@@ -4,13 +4,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,8 +27,6 @@ public class Controller implements Initializable {
     private Label onOff;
     @FXML
     private Label saveLoadInfo;
-    @FXML
-    private Button onOffButton;
     @FXML
     private TextField onOffInput;
     @FXML
@@ -118,7 +116,7 @@ public class Controller implements Initializable {
         }
         bf.delete(j, bf.length());
         Data.textSet = bf.toString();
-        Data.updateSet = true;
+        Data.updateSet.set(true);
         Data.save();
 
         saveLoadInfo.setText("Saved");
@@ -136,8 +134,10 @@ public class Controller implements Initializable {
     }
 
     public void close(MouseEvent mouseEvent) {
-        Platform.exit();
-        System.exit(0);
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.getOnCloseRequest().handle(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
+        //Platform.exit();
+        //System.exit(0);
     }
 
     public void minimize(MouseEvent mouseEvent) {

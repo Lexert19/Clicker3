@@ -1,7 +1,5 @@
 package sample.method;
 
-import sample.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,24 +32,9 @@ public class If extends Method{
                 methods.get(index).run();
             index++;
         }
-
-       /* if(argument.toUpperCase().equals(button)){
-            for(Method method : methods){
-                method.run();
-            }
-            if(index == methods.size())
-
-            if(tick >= tickToAllow) {
-                if(methods.get(index) instanceof Wait)
-                    tickToAllow+=((Wait) methods.get(index)).getTime();
-                else
-                    methods.get(index).run();
-                index++;
-            }
-        }*/
     }
 
-    public void turnOnOff(String button){
+    public void activate(String button){
         if(button.toUpperCase().equals(this.button.toUpperCase()))
             running = true;
     }

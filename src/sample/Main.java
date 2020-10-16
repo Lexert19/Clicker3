@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ public class Main extends Application {
         Data.loadSettings();
 
         Thread listener = new Thread(new Listener(queue));
-        listener.run();
+        listener.start();
         Thread presserClicker = new Thread(new PresserClicker(queue));
         presserClicker.start();
 
@@ -31,6 +32,13 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 536, 490));
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(event -> {
+            listener.interrupt();
+            presserClicker.interrupt();
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
 

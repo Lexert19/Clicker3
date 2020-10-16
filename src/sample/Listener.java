@@ -37,19 +37,22 @@ public class Listener implements NativeKeyListener, Runnable {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
-        try {
-            if(e.getKeyText(e.getKeyCode()).toUpperCase().equals(Data.buttonOnOff.toUpperCase()))
-                Data.active = !Data.active;
-            if(Data.active)
-                queue.put(e.getKeyText(e.getKeyCode()));
-        } catch (InterruptedException interruptedException) {
-            interruptedException.printStackTrace();
-        }
     }
 
     @Override
-    public void nativeKeyReleased(NativeKeyEvent nativeKeyEvent) {
+    public void nativeKeyReleased(NativeKeyEvent e) {
+        try {
+            if(e.getKeyText(e.getKeyCode()).toUpperCase().equals(Data.buttonOnOff.toUpperCase())){
+                Data.active.set(!Data.active.get());
+                //Data.active = !Data.active;
+            }
 
+            if(Data.active.get()){
+                queue.put(e.getKeyText(e.getKeyCode()));
+            }
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        }
     }
 
 

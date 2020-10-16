@@ -21,23 +21,24 @@ public class PresserClicker implements Runnable {
     @Override
     public void run() {
         while (true) {
-            if (Data.updateSet) {
-                Data.updateSet = false;
+            if (Data.updateSet.get()) {
+                Data.updateSet.set(false);
                 ifs.clear();
                 loops.clear();
                 createSetFromText(new StringBuffer(Data.textSet));
             }
-            if (Data.active) {
+
+            if (Data.active.get()) {
                 try {
                     String clickedButton = "";
                     if (!queue.isEmpty())
                         clickedButton = (String) queue.take();
                     for (If oneIf : ifs) {
-                        oneIf.turnOnOff(clickedButton);
+                        oneIf.activate(clickedButton);
                         oneIf.run();
                     }
                     for (Loop loop : loops) {
-                        loop.turnOnOff(clickedButton);
+                        loop.activate(clickedButton);
                         loop.run();
                     }
                 } catch (Exception e) {
@@ -45,10 +46,11 @@ public class PresserClicker implements Runnable {
                     e.printStackTrace();
                 }
             }
+
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         }
     }
@@ -58,16 +60,21 @@ public class PresserClicker implements Runnable {
             Wait wait = new Wait();
             wait.setTime(Integer.parseInt(readValue(line)));
             return wait;
+
         } else if (line.contains("-press:")) {
             Press press = new Press(robot);
             press.setButton(readValue(line));
             return press;
-        } else if (line.contains("-click_position:")) {
+
+        }
+        else if (line.contains("-click_position:")) {
             Click_Position click = new Click_Position(robot);
             click.setX(getX(line));
             click.setY(getY(line));
             return click;
-        } else if (line.contains("-click")) {
+
+        }
+        else if (line.contains("-click")) {
             Click click = new Click(robot);
             return click;
         }
@@ -77,8 +84,9 @@ public class PresserClicker implements Runnable {
     private void correctSet(StringBuffer text) {
         for (int i = 0; i < text.length() - 1; i++) {
             if (text.charAt(i) == '\n') {
-                while (text.charAt(i + 1) == '\n') {
+                if(text.charAt(i+1) == '\n'){
                     text.deleteCharAt(i + 1);
+                    i--;
                 }
             }
         }

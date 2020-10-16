@@ -3,7 +3,7 @@ if:e
 -press:4
 -press:5
 loop:t:60:b:f6
--press:space
+-click
 loop:t:5000:b:f7
 -press:1
 loop:t:6300:b:f7
