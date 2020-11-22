@@ -37,10 +37,6 @@ public class Listener implements NativeKeyListener, Runnable {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
-    }
-
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent e) {
         try {
             if(e.getKeyText(e.getKeyCode()).toUpperCase().equals(Data.buttonOnOff.toUpperCase())){
                 Data.active.set(!Data.active.get());
@@ -53,6 +49,11 @@ public class Listener implements NativeKeyListener, Runnable {
         } catch (InterruptedException interruptedException) {
             interruptedException.printStackTrace();
         }
+    }
+
+    @Override
+    public void nativeKeyReleased(NativeKeyEvent e) {
+
     }
 
 

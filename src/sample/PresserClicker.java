@@ -67,15 +67,23 @@ public class PresserClicker implements Runnable {
             return press;
 
         }
-        else if (line.contains("-click_position:")) {
-            Click_Position click = new Click_Position(robot);
+        else if (line.contains("-move:")) {
+            Move click = new Move(robot);
             click.setX(getX(line));
             click.setY(getY(line));
             return click;
 
         }
-        else if (line.contains("-click")) {
-            Click click = new Click(robot);
+        else if (line.contains("-clickL")) {
+            ClickL click = new ClickL(robot);
+            return click;
+        }
+        else if(line.contains("-clickR")){
+            ClickR click = new ClickR(robot);
+            return click;
+        }
+        else if(line.contains("-clickM")){
+            ClickM click = new ClickM(robot);
             return click;
         }
         return null;
@@ -109,7 +117,8 @@ public class PresserClicker implements Runnable {
                 }
                 i--;
                 ifs.add(newIf);
-            } else if (lines[i].contains("loop:")) {
+            }
+            else if (lines[i].contains("loop:")) {
                 Loop loop = new Loop();
                 loop.setButtonOnOff(loopGetButtonOnOff(lines[i]));
                 loop.setInterval(loopGetInterval(lines[i]));

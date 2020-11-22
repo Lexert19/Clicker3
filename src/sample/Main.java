@@ -30,7 +30,7 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Clicker3");
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 536, 490));
+        primaryStage.setScene(new Scene(root, 600, 510));
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(event -> {

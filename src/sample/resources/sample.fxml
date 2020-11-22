@@ -9,12 +9,12 @@
 <GridPane fx:controller="sample.Controller" styleClass="body" xmlns:fx="http://javafx.com/fxml">
     <VBox>
         <HBox fx:id="topBar" styleClass="topBar"  onMousePressed="#pressed" onMouseDragged="#dragged">
-            <HBox prefWidth="268">
+            <HBox prefWidth="300">
                 <Label fx:id="zestaw1" text="Zestaw1" onMouseClicked="#changeSettings1"></Label>
                 <Label fx:id="zestaw2" text="Zestaw2" onMouseClicked="#changeSettings2"></Label>
                 <Label fx:id="zestaw3" text="Zestaw3" onMouseClicked="#changeSettings3"></Label>
             </HBox>
-            <HBox alignment="TOP_RIGHT" prefWidth="268">
+            <HBox alignment="TOP_RIGHT" prefWidth="300">
                 <Label fx:id="minimize" prefWidth="36" styleClass="minimizeButton" onMouseClicked="#minimize">—</Label>
                 <Label fx:id="close" prefWidth="36" styleClass="closeButton" onMouseClicked="#close">❌</Label>
             </HBox>
@@ -34,18 +34,19 @@
                     <Label>t:1000 - interval 1000ms</Label>
                     <Label>b:A - activator A</Label>
                     <Label>if:E - start if press E</Label>
-                    <Label>-"method"- loop's or if's </Label>
-                    <Label>element</Label>
                     <Label>-press:space</Label>
-                    <Label>-click - use mouse 1</Label>
-                    <Label>-click_position:x:100:y:100</Label>
+                    <Label>-clickL - use the left mouse button</Label>
+                    <Label>-clickM - use the middle mouse button</Label>
+                    <Label>-clickR - use the right mouse button</Label>
+                    <Label>-move:x:100:y:100 - move mouse</Label>
                     <Label>-wait: 200 - wait 200 ms</Label>
+                    <Label></Label>
                     <Label>Example:</Label>
                     <Label>if:E</Label>
                     <Label>-press:3</Label>
                     <Label>-press:4</Label>
                     <Label>loop:t:50:b:F3</Label>
-                    <Label>-click</Label>
+                    <Label>-clickL</Label>
                 </VBox>
             </VBox>
         </HBox>

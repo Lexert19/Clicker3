@@ -3,10 +3,10 @@ package sample.method;
 import java.awt.*;
 import java.awt.event.InputEvent;
 
-public class Click extends Method{
+public class ClickL extends Method{
     private Robot robot;
 
-    public Click(Robot robot) {
+    public ClickL(Robot robot) {
         this.robot = robot;
     }
 
