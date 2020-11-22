@@ -52,7 +52,7 @@
         </HBox>
         <HBox styleClass="saveUpdate">
             <Button onMouseClicked="#loadSave" styleClass="zestawButton">Save/Load</Button>
-            <Label styleClass="saveLoadInfo, savedInfo" fx:id="saveLoadInfo">Saved</Label>
+            <Label styleClass="saveLoadInfo, savedInfo" fx:id="saveLoadInfo"></Label>
         </HBox>
     </VBox>
 </GridPane>

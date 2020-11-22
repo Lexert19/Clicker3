@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Label;
+
 import java.io.*;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -12,6 +14,7 @@ public class Data {
     public static AtomicBoolean updateSet = new AtomicBoolean(false);
     public static String textSet = "";
     public static Properties props = new Properties();
+    public static AtomicBoolean error = new AtomicBoolean(false);
 
     public static void loadSettings() throws IOException {
         props.load(new FileInputStream("data/settings.properties"));

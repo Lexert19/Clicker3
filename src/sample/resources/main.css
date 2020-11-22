@@ -26,6 +26,10 @@
     -fx-text-fill: forestgreen;
 }
 
+.errorInfo{
+    -fx-text-fill: red;
+}
+
 .saveLoadInfo{
     -fx-padding: 6 0 0 7;
 }

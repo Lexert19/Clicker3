@@ -25,7 +25,12 @@ public class PresserClicker implements Runnable {
                 Data.updateSet.set(false);
                 ifs.clear();
                 loops.clear();
-                createSetFromText(new StringBuffer(Data.textSet));
+                try{
+                    createSetFromText(new StringBuffer(Data.textSet));
+                    Data.error.set(false);
+                }catch (Exception e){
+                    Data.error.set(true);
+                }
             }
 
             if (Data.active.get()) {

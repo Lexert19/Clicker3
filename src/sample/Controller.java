@@ -36,8 +36,9 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            checkError();
             loadSettings();
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -106,7 +107,7 @@ public class Controller implements Initializable {
         Data.save();
     }
 
-    public void loadSave(MouseEvent mouseEvent) throws IOException {
+    public void loadSave(MouseEvent mouseEvent) throws IOException, InterruptedException {
         StringBuffer bf = new StringBuffer(scripts.getText());
         int j = 0;
         for (int i = 0; i < bf.length(); i++) {
@@ -119,7 +120,7 @@ public class Controller implements Initializable {
         Data.updateSet.set(true);
         Data.save();
 
-        saveLoadInfo.setText("Saved");
+        checkError();
     }
 
     public void pressed(MouseEvent mouseEvent) {
@@ -147,5 +148,18 @@ public class Controller implements Initializable {
 
     public void hideSaveLoadInfo(KeyEvent keyEvent) {
         saveLoadInfo.setText("");
+    }
+
+    public void checkError() throws InterruptedException {
+        Thread.sleep(120);
+        if (Data.error.get() == false) {
+            saveLoadInfo.setText("Saved");
+            saveLoadInfo.getStyleClass().removeAll("errorInfo");
+            saveLoadInfo.getStyleClass().add("savedInfo");
+        } else {
+            saveLoadInfo.setText("Error");
+            saveLoadInfo.getStyleClass().removeAll("savedInfo");
+            saveLoadInfo.getStyleClass().add("errorInfo");
+        }
     }
 }
