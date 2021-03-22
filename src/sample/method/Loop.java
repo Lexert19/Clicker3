@@ -37,7 +37,7 @@ public class Loop {
     }
 
     public void setInterval(int interval) {
-        this.interval = interval/30;
+        this.interval = interval;
     }
 
     public String getButtonOnOff() {

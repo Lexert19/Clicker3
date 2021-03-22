@@ -97,25 +97,13 @@ public class Controller implements Initializable {
     private void saveSet() throws IOException {
         StringBuffer bf = new StringBuffer(scripts.getText());
 
-        int j = 0;
-        for (int i = 0; i < bf.length(); i++) {
-            if (!Character.isSpaceChar(bf.charAt(i))) {
-                bf.setCharAt(j++, bf.charAt(i));
-            }
-        }
         Data.textSet = bf.toString();
         Data.save();
     }
 
     public void loadSave(MouseEvent mouseEvent) throws IOException, InterruptedException {
         StringBuffer bf = new StringBuffer(scripts.getText());
-        int j = 0;
-        for (int i = 0; i < bf.length(); i++) {
-            if (!Character.isSpaceChar(bf.charAt(i))) {
-                bf.setCharAt(j++, bf.charAt(i));
-            }
-        }
-        bf.delete(j, bf.length());
+
         Data.textSet = bf.toString();
         Data.updateSet.set(true);
         Data.save();

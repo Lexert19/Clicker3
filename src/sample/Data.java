@@ -7,7 +7,6 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Data {
-    //public static boolean active = true;
     public static AtomicBoolean active = new AtomicBoolean(true);
     public static String buttonOnOff = "F2";
     public static int activeSet = 1;

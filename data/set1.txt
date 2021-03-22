@@ -1,14 +1,14 @@
-if:e
--press:3
--press:4
--press:5
--move:x:700:y:700
+if e
+-press 3
+-press 4
+-press 5
+-move 700 700
 
-loop:t:60:b:f6
--clickL
+loop 60 f6
+-click L
 
-loop:t:5000:b:f7
--press:1
+loop 5000 f7
+-press 1
 
-loop:t:6300:b:f7
--press:2
+loop 6300 f7
+-press 2

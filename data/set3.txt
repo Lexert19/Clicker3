@@ -1,6 +1,7 @@
-if:r
--press:t
--press:we
-loop:t:1000:b:A
--press:space
--press:w
+loop 100 F3
+-click L  
+  
+if E
+-press 3
+-press 4
+

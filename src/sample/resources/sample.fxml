@@ -30,23 +30,22 @@
                 <Label fx:id="onOff">On/Off: F4</Label>
                 <VBox styleClass="help">
                     <Label>Help:</Label>
-                    <Label>loop:t:1000:b:A</Label>
-                    <Label>t:1000 - interval 1000ms</Label>
-                    <Label>b:A - activator A</Label>
-                    <Label>if:E - start if press E</Label>
-                    <Label>-press:space</Label>
-                    <Label>-clickL - use the left mouse button</Label>
-                    <Label>-clickM - use the middle mouse button</Label>
-                    <Label>-clickR - use the right mouse button</Label>
-                    <Label>-move:x:100:y:100 - move mouse</Label>
-                    <Label>-wait: 200 - wait 200 ms</Label>
+                    <Label>loop interval(ms) activator</Label>
+                    <Label>if E - start if press E</Label>
+                    <Label>-press space</Label>
+                    <Label>-click L - use the left mouse button</Label>
+                    <Label>-click M - use the middle mouse button</Label>
+                    <Label>-click R - use the right mouse button</Label>
+                    <Label>-move x y - move mouse</Label>
+                    <Label>-wait 200 - wait 200 ms</Label>
                     <Label></Label>
                     <Label>Example:</Label>
-                    <Label>if:E</Label>
-                    <Label>-press:3</Label>
-                    <Label>-press:4</Label>
-                    <Label>loop:t:50:b:F3</Label>
-                    <Label>-clickL</Label>
+                    <Label>if E</Label>
+                    <Label>-press 3</Label>
+                    <Label>-press 4</Label>
+                    <Label></Label>
+                    <Label>loop 50 F3</Label>
+                    <Label>-click L</Label>
                 </VBox>
             </VBox>
         </HBox>

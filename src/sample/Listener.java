@@ -40,7 +40,6 @@ public class Listener implements NativeKeyListener, Runnable {
         try {
             if(e.getKeyText(e.getKeyCode()).toUpperCase().equals(Data.buttonOnOff.toUpperCase())){
                 Data.active.set(!Data.active.get());
-                //Data.active = !Data.active;
             }
 
             if(Data.active.get()){

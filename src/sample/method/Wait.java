@@ -11,6 +11,6 @@ public class Wait extends Method {
     }
 
     public void setTime(int time) {
-        this.time = time/30;
+        this.time = time;
     }
 }
