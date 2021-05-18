@@ -12,8 +12,9 @@ public class Move extends Method{
         this.robot = robot;
     }
 
-    public void run(){
+    public int run(){
         robot.mouseMove(x,y);
+        return 1;
     }
 
     public int getX() {

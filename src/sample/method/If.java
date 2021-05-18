@@ -1,46 +1,28 @@
 package sample.method;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class If extends Method{
     private String button;
-    private List<Method> methods = new ArrayList<>();
-    private int tickToAllow  = 0;
-    private int tick  = 0;
-    private int index = 0;
-    private boolean running = false;
+    private Events events;
 
     public If(String button) {
         this.button = button.toUpperCase();
+        events = new Events(Events.Type.If);
     }
 
-    public void run(){
-        if(running)
-            tick++;
-        if(running && tick >= tickToAllow){
-            if(index == methods.size()){
-                running = false;
-                index =0;
-                tick =0;
-                tickToAllow =0;
-                return;
-            }
-            if(methods.get(index) instanceof Wait)
-                tickToAllow+=((Wait) methods.get(index)).getTime();
-            else
-                methods.get(index).run();
-            index++;
-        }
+    public int run(){
+        events.execute();
+        return 0;
     }
 
     public void activate(String button){
-        if(button.toUpperCase().equals(this.button.toUpperCase()))
-            running = true;
+        if(button.toUpperCase().equals(this.button.toUpperCase())){
+            events.activate();
+        }
     }
 
     public void addMethod(Method method){
-        methods.add(method);
+        events.addEvent(method);
     }
 
     public String getButton() {

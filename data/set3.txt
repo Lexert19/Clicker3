@@ -1,7 +1,8 @@
-loop 100 F3
--click L  
-  
-if E
+if e
 -press 3
 -press 4
 
+
+loop 500 f6
+-press a
+-wait 500

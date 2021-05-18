@@ -12,7 +12,8 @@ public class Click extends Method{
         this.mouse = mouse;
     }
 
-    public void run(){
+    public int run(){
+        this.mouse = Character.toUpperCase(mouse);
         if(mouse == 'L'){
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
@@ -23,6 +24,7 @@ public class Click extends Method{
             robot.mousePress(InputEvent.BUTTON2_DOWN_MASK);
             robot.mouseRelease(InputEvent.BUTTON2_DOWN_MASK);
         }
+        return 1;
 
     }
 }

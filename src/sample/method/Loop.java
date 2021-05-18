@@ -1,50 +1,33 @@
 package sample.method;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Loop {
-    private int interval;
+    private Events events;
     private String buttonOnOff;
-    private boolean runnnig = false;
-    private List<Method> methods = new ArrayList<>();
-    private int tick = 0;
 
     public Loop() {
+        events = new Events(Events.Type.Loop);
+
     }
 
     public void run() {
-        tick ++;
-        if(runnnig && tick >= interval){
-            tick = 0;
-            for(Method method : methods){
-                method.run();
-            }
-        }
+        events.execute();
     }
 
     public void activate(String button){
-        if(buttonOnOff.toUpperCase().equals(button.toUpperCase()))
-            runnnig = !runnnig;
+        if(buttonOnOff.toUpperCase().equals(button.toUpperCase())){
+            events.toggle();
+        }
     }
 
     public void addMethod(Method method){
-        methods.add(method);
-    }
-
-    public int getInterval() {
-        return interval;
+        events.addEvent(method);
     }
 
     public void setInterval(int interval) {
-        this.interval = interval;
-    }
-
-    public String getButtonOnOff() {
-        return buttonOnOff;
+        events.addEvent(new Wait(interval));
     }
 
     public void setButtonOnOff(String buttonOnOff) {
-        this.buttonOnOff = buttonOnOff.toUpperCase();
+        this.buttonOnOff = buttonOnOff;
     }
 }

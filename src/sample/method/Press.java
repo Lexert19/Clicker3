@@ -11,14 +11,19 @@ public class Press extends Method{
         this.robot = robot;
     }
 
-    public void run(){
+    public int run(){
         if(button.toUpperCase().equals("SPACE")){
             robot.keyPress(KeyEvent.VK_SPACE);
             robot.keyRelease(KeyEvent.VK_SPACE);
-            return;
+            return 1;
+        }else if(button.toUpperCase().equals("ESC")){
+            robot.keyPress(KeyEvent.VK_ESCAPE);
+            robot.keyRelease(KeyEvent.VK_ESCAPE);
+            return 1;
         }
         robot.keyPress(KeyEvent.getExtendedKeyCodeForChar(button.charAt(0)));
         robot.keyRelease(KeyEvent.getExtendedKeyCodeForChar(button.charAt(0)));
+        return 1;
     }
 
     public String getButton() {

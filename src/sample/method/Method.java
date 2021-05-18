@@ -1,7 +1,7 @@
 package sample.method;
 
 public class Method {
-    public void run(){
-
+    public int run(){
+        return 0;
     }
 }

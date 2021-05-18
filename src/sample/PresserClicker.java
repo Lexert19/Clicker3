@@ -11,7 +11,6 @@ import java.util.concurrent.BlockingQueue;
 public class PresserClicker implements Runnable {
     private BlockingQueue queue;
     private Robot robot = new Robot();
-
     private List<If> ifs = new ArrayList<>();
     private List<Loop> loops = new ArrayList<>();
 
@@ -64,8 +63,8 @@ public class PresserClicker implements Runnable {
     public Method createMethod(String line) {
         List<String> args = getArgs(line);
         if (line.contains("-wait")) {
-            Wait wait = new Wait();
-            wait.setTime(Integer.parseInt(args.get(0)));
+            Wait wait = new Wait(Integer.parseInt(args.get(0)));
+            //wait.setTime();
             return wait;
         } else if (line.contains("-press")) {
             Press press = new Press(robot);
@@ -117,11 +116,11 @@ public class PresserClicker implements Runnable {
                 i--;
                 ifs.add(newIf);
             } else if (lines[i].contains("loop")) {
-                Loop loop = new Loop();
                 List<String> args = getArgs(lines[i]);
+                Loop loop = new Loop();
+                loop.setInterval(Integer.parseInt(args.get(0)));
 
                 loop.setButtonOnOff(args.get(1));
-                loop.setInterval(Integer.parseInt(args.get(0)));
                 i++;
                 while (lines[i].charAt(0) == '-') {
                     loop.addMethod(createMethod(lines[i]));
